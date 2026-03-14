@@ -1,0 +1,359 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<Layout title="Brasil - Cultura">
+  <Navbar variant="glass-pill" activeLink="culture" />
+
+  <!-- Hero Section -->
+  <header class="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        alt="Christ the Redeemer statue overlooking Rio de Janeiro at golden hour"
+        class="w-full h-full object-cover"
+        src="/images/hero-christ.jpg"
+      />
+      <div class="absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-background/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-8">
+        <h1 class="font-headline font-extrabold text-6xl md:text-8xl lg:text-9xl text-white tracking-tighter leading-[0.9] text-balance mb-8">
+          CULTURA<br />
+          <span class="text-secondary-fixed">VIVA</span>
+        </h1>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <button class="group relative bg-primary text-on-primary font-headline font-bold text-xl px-10 py-5 rounded-full overflow-hidden transition-all hover:scale-105 editorial-shadow">
+            <span class="relative z-10">Mergulhe na Cultura</span>
+            <div class="absolute inset-0 bg-linear-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="glass-effect p-8 rounded-xl editorial-shadow border border-white/20">
+          <p class="font-headline text-2xl font-bold text-on-surface mb-4 italic">"A cultura não é apenas o que vemos — é o que sentimos."</p>
+          <p class="text-on-surface-variant font-body leading-relaxed">Três continentes de herança se encontram no Brasil. Influências indígenas, africanas e europeias se misturam para criar uma identidade cultural vibrante, cheia de ritmo, cores e tradição.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cultural Pillars (Bento Grid) -->
+  <section class="py-32 px-6 bg-surface">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div class="max-w-2xl">
+          <span class="text-primary font-headline font-bold tracking-widest text-sm uppercase mb-4 block">Pilares Culturais</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface tracking-tight">O Ritmo de uma Nação</h2>
+          <p class="text-xl text-on-surface-variant mt-6">A cultura brasileira pulsa através da música, da dança, das celebrações populares e das tradições que atravessam gerações. Cada região do país traz consigo uma história única.</p>
+        </div>
+        <div class="flex gap-4">
+          <span class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label font-bold text-sm">Patrimônio</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+        <!-- Carnival -->
+        <div class="md:col-span-7 relative group overflow-hidden rounded-xl editorial-shadow">
+          <img
+            alt="Vibrant Rio de Janeiro with colorful streets and cultural life"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="/images/rio-coastline.jpg"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-10 w-full">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="bg-secondary-container/80 backdrop-blur-md text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Famoso no Mundo</span>
+            </div>
+            <h3 class="text-4xl font-headline font-bold text-white mb-2">Carnaval</h3>
+            <p class="text-white/80 max-w-md mb-6">O Carnaval brasileiro é considerado a maior festa popular do planeta. Durante vários dias, milhões de pessoas saem às ruas para celebrar com música, dança e fantasias. No Rio de Janeiro, as escolas de samba desfilam no Sambódromo em espetáculos grandiosos. Em Salvador e Recife, blocos de rua transformam a cidade em um enorme palco cultural.</p>
+            <button class="flex items-center gap-2 text-secondary-fixed font-headline font-bold group">
+              Viva o Carnaval <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+        <!-- Music + Capoeira -->
+        <div class="md:col-span-5 grid grid-rows-2 gap-6">
+          <div class="relative group overflow-hidden rounded-xl editorial-shadow">
+            <img
+              alt="Traditional Brazilian Caipirinha representing Brazilian social culture"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="/images/caipirinha.jpg"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <span class="text-secondary-fixed font-headline font-bold text-xs uppercase tracking-widest mb-2 block">Herança Musical</span>
+              <h3 class="text-2xl font-headline font-bold text-white">Samba & Bossa Nova</h3>
+              <p class="text-white/70 mt-2 text-sm max-w-xs">O samba nasceu nas comunidades afro-brasileiras do Rio de Janeiro e se tornou um símbolo nacional. A bossa nova, surgida nos anos 1950, trouxe uma nova estética musical que conquistou o mundo com artistas como Tom Jobim e João Gilberto.</p>
+            </div>
+          </div>
+          <div class="bg-surface-container-highest p-10 rounded-xl relative overflow-hidden flex flex-col justify-center">
+            <div class="relative z-10">
+              <span class="text-tertiary font-headline font-bold text-xs uppercase tracking-widest mb-4 block">Tradições Vivas</span>
+              <h3 class="text-3xl font-headline font-bold text-on-surface mb-4">Capoeira</h3>
+              <p class="text-on-surface-variant">Criada por escravizados africanos no Brasil, a capoeira mistura arte marcial, música, dança e resistência cultural. Hoje reconhecida como Patrimônio Cultural Imaterial da Humanidade pela UNESCO, ela representa liberdade, identidade e história.</p>
+            </div>
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cultural Expressions Grid -->
+  <section class="py-24 px-6 bg-surface-container-low overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="text-tertiary font-headline font-bold tracking-widest text-sm uppercase mb-6 block">Expressões Culturais</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface mb-4 leading-tight">Um Mosaico de Identidades</h2>
+        <p class="text-xl text-on-surface-variant max-w-2xl">A identidade cultural brasileira é resultado do encontro entre povos indígenas, africanos e europeus. Essa diversidade criou uma das culturas mais ricas e vibrantes do planeta.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Afro-Brazilian -->
+        <div class="bg-surface-container rounded-xl p-10 editorial-shadow relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-tertiary-container/20 rounded-full blur-2xl"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-tertiary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-on-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Herança Afro-Brasileira</h3>
+            <p class="text-on-surface-variant mb-6">A influência africana está presente na música, na culinária, nas religiões e nas festas populares. Expressões como o Candomblé, a capoeira e o maracatu fazem parte da alma cultural do Brasil, especialmente em estados como Bahia e Pernambuco.</p>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-tertiary-container/30 rounded-full text-xs font-bold text-tertiary uppercase tracking-widest">Salvador</span>
+              <span class="px-3 py-1 bg-tertiary-container/30 rounded-full text-xs font-bold text-tertiary uppercase tracking-widest">Bahia</span>
+              <span class="px-3 py-1 bg-tertiary-container/30 rounded-full text-xs font-bold text-tertiary uppercase tracking-widest">Recife</span>
+            </div>
+          </div>
+        </div>
+        <!-- Indigenous -->
+        <div class="bg-surface-container rounded-xl p-10 editorial-shadow relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-on-primary text-2xl" style="font-variation-settings: 'FILL' 1;">forest</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Raízes Indígenas</h3>
+            <p class="text-on-surface-variant mb-6">Mais de 300 povos indígenas vivem no Brasil, preservando línguas, tradições e conhecimentos ancestrais. Eles são os guardiões de uma profunda conexão com a natureza, especialmente na região amazônica.</p>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-primary/10 rounded-full text-xs font-bold text-primary uppercase tracking-widest">Amazônia</span>
+              <span class="px-3 py-1 bg-primary/10 rounded-full text-xs font-bold text-primary uppercase tracking-widest">Xingu</span>
+            </div>
+          </div>
+        </div>
+        <!-- Colonial European -->
+        <div class="bg-surface-container rounded-xl p-10 editorial-shadow relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary-container/30 rounded-full blur-2xl"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-on-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">church</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Influência Europeia</h3>
+            <p class="text-on-surface-variant mb-6">A colonização portuguesa deixou marcas profundas na arquitetura, na língua e na religião. Cidades históricas como Ouro Preto e Paraty preservam igrejas barrocas, ruas de pedra e tradições culturais que atravessam séculos.</p>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-secondary-container/50 rounded-full text-xs font-bold text-secondary uppercase tracking-widest">Ouro Preto</span>
+              <span class="px-3 py-1 bg-secondary-container/50 rounded-full text-xs font-bold text-secondary uppercase tracking-widest">Paraty</span>
+              <span class="px-3 py-1 bg-secondary-container/50 rounded-full text-xs font-bold text-secondary uppercase tracking-widest">Gramado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial: Art & Architecture -->
+  <section class="py-24 px-6 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-xl overflow-hidden editorial-shadow">
+            <img
+              alt="Authentic Brazilian cultural experience and gastronomy"
+              class="w-full h-full object-cover"
+              src="/images/gastronomy.jpg"
+            />
+          </div>
+          <div class="absolute -bottom-10 -right-10 w-64 h-64 glass-effect p-8 rounded-xl editorial-shadow hidden md:block">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">palette</span>
+            <h4 class="font-headline font-bold text-xl mb-2">Arte em Todo Lugar</h4>
+            <p class="text-sm text-on-surface-variant">Arte de rua, galerias e instalações públicas transformam cidades inteiras em telas vivas.</p>
+          </div>
+        </div>
+        <div>
+          <span class="text-tertiary font-headline font-bold tracking-widest text-sm uppercase mb-6 block">Arte e Arquitetura</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface mb-8 leading-tight">Do Barroco ao Modernismo</h2>
+          <p class="text-xl text-on-surface-variant font-body leading-relaxed mb-10">
+            A história artística do Brasil atravessa séculos. Das igrejas barrocas de Ouro Preto, criadas pelo mestre Aleijadinho, até as curvas modernistas de Brasília projetadas por Oscar Niemeyer. Artistas contemporâneos como Vik Muniz e Beatriz Milhazes também colocaram o Brasil no mapa global da arte.
+          </p>
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">3.000+</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">Museus e Galerias</div>
+            </div>
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">500+</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">Festivais Culturais por Ano</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cultural Calendar - Auto-scroll Marquee -->
+  <section class="py-24 bg-tertiary overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-20">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-6xl font-black text-on-tertiary mb-6">Calendário Cultural</h2>
+        <p class="text-tertiary-fixed-dim max-w-2xl mx-auto text-lg">As celebrações que definem o Brasil ao longo do ano.</p>
+      </div>
+    </div>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <!-- Janeiro: Lavagem do Bonfim -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Janeiro</span>
+              <span class="text-white font-bold">Salvador</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Lavagem do Bonfim</h3>
+          <p class="text-tertiary-fixed-dim mb-6">Uma tradicional procissão religiosa onde baianas vestidas de branco lavam as escadarias da Igreja do Bonfim. Mistura fé católica e tradições afro-brasileiras.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">Cerimônia sagrada</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Fevereiro/Março: Carnaval -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">celebration</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Fevereiro / Março</span>
+              <span class="text-white font-bold">Rio de Janeiro · Salvador · Recife</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Carnaval</h3>
+          <p class="text-tertiary-fixed-dim mb-6">O maior espetáculo cultural do Brasil, com desfiles, blocos de rua, música e dança durante vários dias.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">5 dias de festa</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Junho: Festas Juninas -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Junho</span>
+              <span class="text-white font-bold">Nordeste</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Festas Juninas</h3>
+          <p class="text-tertiary-fixed-dim mb-6">Celebrações tradicionais com danças típicas, comidas regionais e fogueiras. Especialmente populares no Nordeste do Brasil.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">O mês inteiro</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Setembro: Festival de Parintins -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">theater_comedy</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Setembro</span>
+              <span class="text-white font-bold">Amazonas</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Festival de Parintins</h3>
+          <p class="text-tertiary-fixed-dim mb-6">Uma competição folclórica entre os bois Garantido e Caprichoso, com música, dança e espetáculos inspirados nas lendas amazônicas.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">Espetáculo folclórico</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Duplicated for seamless loop -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Janeiro</span>
+              <span class="text-white font-bold">Salvador</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Lavagem do Bonfim</h3>
+          <p class="text-tertiary-fixed-dim mb-6">Uma tradicional procissão religiosa onde baianas vestidas de branco lavam as escadarias da Igreja do Bonfim. Mistura fé católica e tradições afro-brasileiras.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">Cerimônia sagrada</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">celebration</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Fevereiro / Março</span>
+              <span class="text-white font-bold">Rio de Janeiro · Salvador · Recife</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Carnaval</h3>
+          <p class="text-tertiary-fixed-dim mb-6">O maior espetáculo cultural do Brasil, com desfiles, blocos de rua, música e dança durante vários dias.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">5 dias de festa</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Junho</span>
+              <span class="text-white font-bold">Nordeste</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Festas Juninas</h3>
+          <p class="text-tertiary-fixed-dim mb-6">Celebrações tradicionais com danças típicas, comidas regionais e fogueiras. Especialmente populares no Nordeste do Brasil.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">O mês inteiro</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">theater_comedy</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">Setembro</span>
+              <span class="text-white font-bold">Amazonas</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Festival de Parintins</h3>
+          <p class="text-tertiary-fixed-dim mb-6">Uma competição folclórica entre os bois Garantido e Caprichoso, com música, dança e espetáculos inspirados nas lendas amazônicas.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">Espetáculo folclórico</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

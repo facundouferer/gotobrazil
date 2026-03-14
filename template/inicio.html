@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#6e7b6b",
+              "inverse-primary": "#65df76",
+              "on-secondary-fixed-variant": "#524600",
+              "surface-container-highest": "#c0eec5",
+              "secondary-container": "#fddc00",
+              "on-tertiary-fixed-variant": "#2b4289",
+              "error": "#ba1a1a",
+              "inverse-surface": "#0e381c",
+              "tertiary-container": "#5b71bb",
+              "outline-variant": "#bdcab9",
+              "on-error": "#ffffff",
+              "surface-container-low": "#d1ffd6",
+              "on-background": "#00210c",
+              "secondary-fixed": "#ffe24b",
+              "tertiary": "#4258a0",
+              "on-primary-fixed-variant": "#00531c",
+              "on-primary-fixed": "#002107",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#3e4a3d",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#81fc90",
+              "surface": "#eaffe9",
+              "secondary": "#6d5e00",
+              "on-surface": "#00210c",
+              "primary-fixed-dim": "#65df76",
+              "surface-dim": "#b7e5bd",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-tint": "#006e27",
+              "surface-variant": "#c0eec5",
+              "on-primary-container": "#f7fff2",
+              "on-secondary-fixed": "#211b00",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#c5f4cb",
+              "tertiary-fixed": "#dce1ff",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#006b26",
+              "surface-container": "#cbf9d0",
+              "tertiary-fixed-dim": "#b5c4ff",
+              "secondary-fixed-dim": "#e3c600",
+              "on-tertiary-container": "#fffbff",
+              "on-secondary-container": "#706000",
+              "background": "#eaffe9",
+              "on-tertiary-fixed": "#00164e",
+              "surface-bright": "#eaffe9",
+              "primary-container": "#008732",
+              "inverse-on-surface": "#cefcd3"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #EAFFE9; color: #00210C; margin: 0; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(234, 255, 233, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(0, 33, 12, 0.06);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #006B26 0%, #008732 100%);
+        }
+        .text-balance { text-wrap: balance; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 glass-panel border-b border-outline-variant/15 px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-extrabold tracking-tighter text-primary font-headline">Brazil</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Destinations</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors border-b-2 border-primary" href="#">Culture</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Gastronomy</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="primary-gradient text-on-primary px-8 py-2.5 rounded-full font-label font-bold text-sm hover:scale-105 transition-transform editorial-shadow">Book Now</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section: A Culinary Journey Through Brazil -->
+<section class="relative min-h-[90vh] flex items-center px-6 lg:px-20 py-20 overflow-hidden">
+<div class="container mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10">
+<div class="lg:col-span-6 space-y-8">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label text-xs font-bold tracking-widest uppercase">Gastronomic Odyssey</span>
+<h1 class="text-6xl lg:text-8xl font-black leading-[0.9] text-primary tracking-tighter">A Culinary Journey Through Brazil</h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">Experience the soul of a nation through its flavors. From the earthy depths of the Amazon to the vibrant coasts of Bahia, every bite tells a story of heritage, passion, and lush abundance.</p>
+</div>
+<div class="lg:col-span-6 relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<img alt="" class="w-full aspect-[4/5] object-cover rounded-xl editorial-shadow" data-alt="Traditional Brazilian Feijoada stew in clay pot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhh1nhMdHMK8Qo4bc58foN-uQbqv_AtySK_KYXm-9KTa9jdYi8WjBahDfPG2m2S60lUI_-RdNwK0PlgWwgQFeN7y9jF7Zmokq4TPxkKu3I2jcBsLa5yRxIhEG3uWjSshcLVxaPWhymciq2Q8Q49K8mIK-IhTO_fJSHP8fq61Se8-aE-YJPUOqch3CjrOdOH5dT0-yTwLEffC5bLAr3sb0u9eFRyQPYCQuuC9WN3InmITRs-fYUMjR4S4ho1M8gQWjtEA2xEImw39A"/>
+<img alt="" class="w-full aspect-square object-cover rounded-xl editorial-shadow translate-x-12" data-alt="Classic Brazilian Churrasco grilled meat skewers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIz1wYZYPPbhGhkF4UY3wivXzey4UuIA9eLs5WvjAMmha2-TcpGDFE4JfIin2wt1Hc8lJHPj_mTNfRl4DRA7KOJuMNlJE4tMhZsjfNFjxL_-F1ilytQ8XjWOdLNwJ9n6dDn7D0TGL6gR1qRpdEwof-Ndr5hH-O2uiSYygaBrvwrKesQt5RtpR-Ppm-k1dVK4tFPxPB76EoV3Oq8h-9LfGrFUA4JT49ejMkexa1mP5w-cjWZIK-j71kZJPWKmrUTvvXSS4JGCwxOI0"/>
+</div>
+<div class="pt-12">
+<img alt="" class="w-full aspect-[3/4] object-cover rounded-xl editorial-shadow" data-alt="Fresh Brazilian Moqueca seafood stew simmering" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUBzJeh9daiXW-Ms2mCeRnoB_CClATc3sK2kDfo5W_mL0O4nrRW0G1-OKEBFujGL3BD3YDhRs8IbZCL9489hczxOqomAGZwkj9iWenC9ix1rGiDeScx-1kKVadnPVj8DMi8JaDa9zBrUfpzVdpM3S8mATmnJgrSxCc6Pw8fj77-fBzGd5pYeOqaqNzejn1FYmDbIpMrixL-SYtIaWz_MMjzfLWnU_3WbdgIQQNtWIcsDhNErv-zKiyUYq39kuHXh4Au4xAFe6uiNA"/>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-tertiary-container/20 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Regional Flavors: Bento Grid -->
+<section class="py-24 bg-surface-container-low px-6 lg:px-20 rounded-[3rem]">
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="text-4xl lg:text-6xl font-black text-primary leading-tight tracking-tight">Regional Flavors</h2>
+<p class="text-lg text-on-surface-variant mt-4">A continent-sized country with a palette to match. Discover the distinct culinary identities of Brazil's diverse territories.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto">
+<!-- Amazonian -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container h-[400px]">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Exotic Amazonian fruits and river fish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4fGGnCwOQ0ebs02BecS9hiBVKbQkQErJa-7WRNfu3ReWY5WF4HSAp2m6XTpVo0Bd9UKHYhkQepNF67bPgMHRslKKD1G0bnu-igSYBvBP0hCYuP7NX_wlJ4wLbv4Z5_Wdf3-Sgc1ZK1lWyXtryoVbCBmvB5bwVrvOaKvBdybfwYWvfvxDnLQ5zbcdDGB0gJz5DpgWIG9W99W1oBJYc7T5xVS71f2MR60Ndcray5H85C1n3wZ5EyaNYiFFYaYvLVJduX9pSpGpYti8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+<div class="absolute bottom-0 p-10">
+<h3 class="text-3xl font-bold text-on-primary">Amazonian Forest</h3>
+<p class="text-on-primary/80 mt-2 max-w-md">Indigenous roots meet exotic biodiversity. Featuring Acai, Tucupi, and the legendary Pirarucu fish.</p>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold text-on-primary uppercase tracking-widest">Exotic</span>
+<span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold text-on-primary uppercase tracking-widest">Organic</span>
+</div>
+</div>
+</div>
+<!-- Southern -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-tertiary h-[400px]">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="Authentic Southern Brazilian Churrasco grill" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm-LDYFM30Cvzgbi29PG54aK3B6WqQRIHXoY9D9v1pnRXRiDLQjoZLHcl00WVywLnyuhxfEyZOeNC-NaNpq-DaeT2fWy-hG-SMiW3v6dPFQ9eFLdkdZL6F9QT__vZJxtrdES9HhNlN7QsLxCpYndvbmZpRxlt5zdK996e8INYTYwaanRUcQ50fGKkiHthe3beQMd7IPNuEwin9dKxh9neTSOQwjRowq3BZsczDVcvCdvySYrF8YRLMjU6RbukyEYvDHg1oW_CrsUY"/>
+<div class="absolute inset-0 flex flex-col justify-end p-10">
+<h3 class="text-3xl font-bold text-on-tertiary">Southern Churrasco</h3>
+<p class="text-on-tertiary/80 mt-2">The art of the open flame. Premium cuts and centuries of Gaucho tradition.</p>
+</div>
+</div>
+<!-- Northeastern -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-secondary-container h-[400px]">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70" data-alt="Spicy Northeastern seafood dish with dendê oil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoZe3-cEXl_h2jLDmLmdjbBbZ2uQGRem3WsFElXO7hMz-4XF6TS2XMlNd6IrIp6ewJK5CydotBKa8gfJrjHV6O_MTuDovd6fHOv5AA10NI_SJR3zeaxJx8mwGMIOt6e1MJGSBNvYGMugln8SGKhuiIVkKDprElqrr8qCbdS65bRlZ4ObUvtrXLyvWlACyOugW5AaKBq9F7HMvw3AcC9NKHVRcValwSXa1L3ZU7faEgxzvC0-Aycspg8cI0DJNCIsdpyY0EHahiOqA"/>
+<div class="absolute inset-0 flex flex-col justify-end p-10">
+<h3 class="text-3xl font-bold text-on-secondary-container">Northeastern Spice</h3>
+<p class="text-on-secondary-container/80 mt-2">African influence meet coastal abundance. Dendê oil and coconut milk magic.</p>
+</div>
+</div>
+<!-- Minas Gerais -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-highest h-[400px]">
+<img alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Brazilian Pão de Queijo and artisanal cheese" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl01k774qY2uP4Utl56QjJn6E8P5ttp_fEh-9SB1A1fgpCUjXbKi47RuyMapa_zyu-4ETg1dbgdSut0-HBgp2SNMa08utFgkXHw9kzV3WeKVW9YQfG7rxUTZuv3OJ0zHThgpROMR4Z6lr12sKRKorgTUEFOBz-GoZSk_NTh_kvblyx6w4z7G0vBJlA9xEFmGa6M3LbcFB1m-XKhcsln2hYfmvKqlvj-5-tMx2m9Mf1qHBs2OocFRiKR4nhYw14bNma9gjnrH2YtVw"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-secondary/60 to-transparent"></div>
+<div class="absolute bottom-0 right-0 p-10 text-right">
+<h3 class="text-3xl font-bold text-on-surface">Minas Heritage</h3>
+<p class="text-on-surface-variant mt-2 max-w-sm ml-auto">The comfort food capital. Famous for artisanal cheeses and the world's best Pão de Queijo.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Art of the Caipirinha -->
+<section class="py-32 px-6 lg:px-20 overflow-hidden">
+<div class="container mx-auto grid lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="w-full aspect-square rounded-full border-[20px] border-secondary-container/30 absolute -top-10 -left-10 animate-pulse"></div>
+<img alt="" class="w-full aspect-[4/5] object-cover rounded-[3rem] editorial-shadow relative z-10" data-alt="A refreshing lime Caipirinha with ice and sugar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA2faQYDb5ZlQlGd8cgUssyFa3Ns72EpW3KNjHQxoNKuw7p6D_1FkyL7Oqyz2O0n0yjfBdAUm4fk0BxVcWvMdMSQ0dkvNvYMaVgK3gVrlZS13nkEPp5g0wA7tEbwQu0DwnWJUtojUyTAgcWznLRlWQbFmPQIErD18I3PsssEdc6gKltoXP5ApLccEDDSSJjq9S9yAqUomu4YAjNBG2r9I-uVqMNLBdMOpAQ3YkoB4nAexvp0SmoulVp1XcoPZhhO47PKbtJAM4Vjk"/>
+<div class="absolute -bottom-6 -right-6 glass-panel p-8 rounded-2xl editorial-shadow z-20 max-w-[200px]">
+<span class="text-primary font-bold text-4xl block mb-2">100%</span>
+<span class="text-sm font-label uppercase font-bold tracking-widest text-on-surface-variant">Brazilian Soul</span>
+</div>
+</div>
+<div class="space-y-10">
+<h2 class="text-5xl lg:text-7xl font-black text-primary leading-tight">The Art of the Caipirinha</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed">More than a drink, it's a ritual. Lime, sugar, ice, and the finest Cachaça come together in a rhythmic dance of sweetness and acidity that perfectly captures the Brazilian spirit.</p>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Artisanal Cachaça</h4>
+<p class="text-on-surface-variant">Hand-distilled from fresh sugarcane in the highlands.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Tropic Chill</h4>
+<p class="text-on-surface-variant">Crushed ice that melts into the tropical afternoon heat.</p>
+</div>
+</li>
+</ul>
+<button class="flex items-center gap-3 group">
+<span class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</span>
+<span class="font-label font-bold text-primary tracking-widest uppercase text-sm">Discover the Recipe</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Featured Experiences: Top 5 Gastronomic Tours -->
+<section class="py-24 bg-tertiary px-6 lg:px-20">
+<div class="container mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl lg:text-6xl font-black text-on-tertiary mb-6">Top 5 Gastronomic Tours</h2>
+<p class="text-tertiary-fixed-dim max-w-2xl mx-auto text-lg">Curated journeys for the ultimate epicurean traveler.</p>
+</div>
+<div class="flex flex-nowrap overflow-x-auto gap-8 pb-12 scrollbar-hide no-scrollbar">
+<!-- Tour 1 -->
+<div class="min-w-[320px] lg:min-w-[400px] bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+<img alt="" class="w-full h-48 object-cover rounded-xl mb-6" data-alt="Lush coffee plantation in Minas Gerais mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcI-7PhKJtCndFtNRy0xvmaCjsuXaypekW1W8vOKE5dHvEaxTdNAWzYSO6eHrB8Sw3KTqvvWD5cdlQ2XbVRJ_xe-1KN4a6SbRgOrS32yXS67vFpRp34ZqB7pY9vHgV2rXRQM7XIvR2a94M1cBvrUS45Tmo4Wvi6C8DLWa70zf-3XSqX8MNe5liCk2QIKZMzX1AS-T5en0y8cwEc1p2gYfoePUubnACSh5NwWYIwqkIsBS-TBktVysTbAkRv7ss6UOQMboGT44dwmc"/>
+<span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">Minas Gerais</span>
+<h3 class="text-2xl font-bold text-white mt-2">Coffee Gold Rush</h3>
+<p class="text-tertiary-fixed-dim mt-4">Journey through century-old plantations and taste the world's most awarded beans.</p>
+<div class="mt-8 flex justify-between items-center">
+<span class="text-white font-bold">4 Days</span>
+<span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+</div>
+</div>
+<!-- Tour 2 -->
+<div class="min-w-[320px] lg:min-w-[400px] bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+<img alt="" class="w-full h-48 object-cover rounded-xl mb-6" data-alt="Street food market in Salvador Bahia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFApHjFjNCAhRy6QP5mT8tjaD2sbc7zI8wykQDidSzz-FBMNSNuF0IIT6vvu7dLaqPGzrXdBdkAN1qrM1msFT4YMHOCvLNcWmMimH79yH-_5Bd-qNhk7fPy9JnVgpVAT9sIk38vQ7i-egqhkBNPUpT2N-uSm0S7I_jj8OF7obuQk3e0TmrSqc7I2lHjFsoXwMvZ5qXyeZfTV2I1bE4BOZVyqG8H28pxGwatopsdIQrVgG4Ephlj3tE6hfWd7yAM1Y2V0AxS02iH6k"/>
+<span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">Salvador</span>
+<h3 class="text-2xl font-bold text-white mt-2">Soul Food of Bahia</h3>
+<p class="text-tertiary-fixed-dim mt-4">Master the art of Acarajé with local Moças in the historic streets of Pelourinho.</p>
+<div class="mt-8 flex justify-between items-center">
+<span class="text-white font-bold">3 Days</span>
+<span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+</div>
+</div>
+<!-- Tour 3 -->
+<div class="min-w-[320px] lg:min-w-[400px] bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+<img alt="" class="w-full h-48 object-cover rounded-xl mb-6" data-alt="Sophisticated fine dining restaurant in Sao Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2lAqYtY-4M6uBT3wgC_qqn59TEknyL0b3XK0BZ_TTGfJQL6ZtIGc4-KWEPo3IAi0K9xMOkX_2RaL-5Q47vxReSJ3O2iNVfyIWrwoR0MsXWXHjlZJonvHWmINOXy7C0XZaO8VPAbKdgZfbn6zZzoNJilld6sDjeJKYY7ic8WyVEkq4ixxBg9xiK4l3M0p2avgdhNqQ7Ay_y-y1rZJStlXXKtIKC5LucKB_XvGC9FTSzXyssX1TO4M6dQP6fcSaCJsgD30hJ5wNmcM"/>
+<span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">São Paulo</span>
+<h3 class="text-2xl font-bold text-white mt-2">Urban Michelin Star</h3>
+<p class="text-tertiary-fixed-dim mt-4">A week-long exploration of the world's most diverse gastronomic megalopolis.</p>
+<div class="mt-8 flex justify-between items-center">
+<span class="text-white font-bold">7 Days</span>
+<span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-6">
+<div class="container mx-auto max-w-5xl">
+<div class="relative rounded-[3rem] overflow-hidden primary-gradient p-12 lg:p-24 text-center editorial-shadow">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+<div class="relative z-10">
+<h2 class="text-4xl lg:text-7xl font-black text-on-primary mb-8 leading-tight">Tantalize Your Taste Buds</h2>
+<p class="text-on-primary/80 text-xl max-w-2xl mx-auto mb-12">Join us for an unforgettable feast of the senses. Our culinary experts are ready to guide you through the hidden gems of Brazil.</p>
+<button class="bg-secondary-container text-on-secondary-container px-12 py-5 rounded-full font-headline font-black text-lg hover:scale-110 transition-transform editorial-shadow">Book Your Culinary Adventure</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low pt-20 pb-10 px-6 lg:px-20 rounded-t-[3rem]">
+<div class="container mx-auto">
+<div class="grid md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-2">
+<span class="text-3xl font-black text-primary font-headline">Brazil</span>
+<p class="text-on-surface-variant mt-6 max-w-sm">Curating the finest Brazilian experiences for the sophisticated global traveler. Discover the lush heart of South America.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Explore</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Destinations</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Culture</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Gastronomy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-6">Connect</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-sm text-on-surface-variant">© 2024 Visit Brazil. High-end Tourism.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">photo_camera</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">play_circle</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

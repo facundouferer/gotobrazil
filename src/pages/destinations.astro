@@ -1,0 +1,235 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<Layout title="Brasil - Destinos">
+  <Navbar variant="glass-pill" activeLink="destinations" />
+
+  <!-- Hero Section -->
+  <header class="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        alt="Lush Amazon rainforest canopy with a winding river"
+        class="w-full h-full object-cover"
+        src="/images/amazon-river.jpg"
+      />
+      <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-background/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-8">
+        <h1 class="font-headline font-extrabold text-6xl md:text-8xl lg:text-9xl text-white tracking-tighter leading-[0.9] text-balance mb-8">
+          HORIZONTES<br />
+          <span class="text-secondary-fixed">SEM LIMITES</span>
+        </h1>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <button class="group relative bg-primary text-on-primary font-headline font-bold text-xl px-10 py-5 rounded-full overflow-hidden transition-all hover:scale-105 editorial-shadow">
+            <span class="relative z-10">Encontre Seu Destino</span>
+            <div class="absolute inset-0 bg-linear-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="glass-effect p-8 rounded-xl editorial-shadow border border-white/20">
+          <p class="font-headline text-2xl font-bold text-on-surface mb-4 italic">"O quinto maior país do mundo, esperando por você."</p>
+          <p class="text-on-surface-variant font-body leading-relaxed">De costas tropicais que se estendem por 7.000 km ao coração da maior floresta tropical do mundo.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Destinations (Bento Grid) -->
+  <section class="py-32 px-6 bg-surface">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div class="max-w-2xl">
+          <span class="text-primary font-headline font-bold tracking-widest text-sm uppercase mb-4 block">Destinos Icônicos</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface tracking-tight">Onde a Natureza Encontra a Alma</h2>
+        </div>
+        <div class="flex gap-4">
+          <span class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label font-bold text-sm">Destaque</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+        <!-- Rio de Janeiro -->
+        <div class="md:col-span-7 relative group overflow-hidden rounded-xl editorial-shadow">
+          <img
+            alt="Aerial view of Rio de Janeiro coastline with mountains and beaches"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="/images/rio-coastline.jpg"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-10 w-full">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="bg-primary/20 backdrop-blur-md text-primary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Paraíso Costeiro</span>
+            </div>
+            <h3 class="text-4xl font-headline font-bold text-white mb-2">Rio de Janeiro</h3>
+            <p class="text-white/80 max-w-md mb-6">Rio de Janeiro encanta com suas praias icônicas como Copacabana e Ipanema, o Cristo Redentor e o Pão de Açúcar.</p>
+            <button class="flex items-center gap-2 text-secondary-fixed font-headline font-bold group">
+              Descobrir o Rio <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+        <!-- Amazon + Iguazu -->
+        <div class="md:col-span-5 grid grid-rows-2 gap-6">
+          <div class="relative group overflow-hidden rounded-xl editorial-shadow">
+            <img
+              alt="Dense Amazon rainforest with exotic wildlife"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="/images/amazonian.jpg"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <span class="text-secondary-fixed font-headline font-bold text-xs uppercase tracking-widest mb-2 block">Maravilhas Naturais</span>
+              <h3 class="text-2xl font-headline font-bold text-white">A Amazônia</h3>
+            </div>
+          </div>
+          <div class="bg-surface-container-highest p-10 rounded-xl relative overflow-hidden flex flex-col justify-center">
+            <div class="relative z-10">
+              <span class="text-tertiary font-headline font-bold text-xs uppercase tracking-widest mb-4 block">Dados Rápidos</span>
+              <h3 class="text-3xl font-headline font-bold text-on-surface mb-4">Brasil em Números</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="text-2xl font-headline font-extrabold text-primary">7,491</div>
+                  <div class="text-xs text-on-surface-variant font-label font-bold uppercase tracking-wide">km de Costa</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-headline font-extrabold text-primary">2,500+</div>
+                  <div class="text-xs text-on-surface-variant font-label font-bold uppercase tracking-wide">Praias</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-headline font-extrabold text-primary">72</div>
+                  <div class="text-xs text-on-surface-variant font-label font-bold uppercase tracking-wide">Parques Nacionais</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-headline font-extrabold text-primary">23</div>
+                  <div class="text-xs text-on-surface-variant font-label font-bold uppercase tracking-wide">Sítios UNESCO</div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regional Highlights -->
+  <section class="py-24 px-6 bg-surface-container-low overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="text-tertiary font-headline font-bold tracking-widest text-sm uppercase mb-6 block">Exploração Regional</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface mb-4 leading-tight">Cinco Regiões, Histórias Infinitas</h2>
+        <p class="text-xl text-on-surface-variant max-w-2xl">Cada região do Brasil possui um caráter distinto — das planícies gaúchas do Sul ao litoral selvagem do Nordeste.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Northeast -->
+        <div class="group relative overflow-hidden rounded-xl h-[480px] editorial-shadow">
+          <img
+            alt="Spicy Northeastern Brazilian coastal landscape"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="/images/northeastern.jpg"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-secondary-container/80 backdrop-blur-md text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Tropical</span>
+            </div>
+            <h3 class="text-3xl font-headline font-bold text-white mb-2">Nordeste</h3>
+            <p class="text-white/80 text-sm mb-4">Salvador, Recife, Fortaleza — litoral ensolarado, arquitetura colonial e herança afro-brasileira em cada esquina.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="flex items-center gap-1 text-secondary-fixed">
+                <span class="material-symbols-outlined text-base">wb_sunny</span> 300+ dias de sol
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- South -->
+        <div class="group relative overflow-hidden rounded-xl h-[480px] editorial-shadow">
+          <img
+            alt="Southern Brazilian Churrasco gaucho tradition"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="/images/southern-churrasco.jpg"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-tertiary-container/80 backdrop-blur-md text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Patrimônio</span>
+            </div>
+            <h3 class="text-3xl font-headline font-bold text-white mb-2">Sul</h3>
+            <p class="text-white/80 text-sm mb-4">Cataratas do Iguaçu, Florianópolis e Gramado — charme europeu encontra grandeza subtropical na região mais temperada do Brasil.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="flex items-center gap-1 text-secondary-fixed">
+                <span class="material-symbols-outlined text-base">landscape</span> Cataratas do Iguaçu
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Southeast -->
+        <div class="group relative overflow-hidden rounded-xl h-[480px] editorial-shadow">
+          <img
+            alt="Christ the Redeemer overlooking the city at sunset"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="/images/hero-christ.jpg"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 w-full">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-primary-container/80 backdrop-blur-md text-on-primary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Cosmopolita</span>
+            </div>
+            <h3 class="text-3xl font-headline font-bold text-white mb-2">Sudeste</h3>
+            <p class="text-white/80 text-sm mb-4">Rio, São Paulo, Minas Gerais — potência econômica e cultural com museus, gastronomia e vida noturna de classe mundial.</p>
+            <div class="flex items-center gap-4 text-sm">
+              <span class="flex items-center gap-1 text-secondary-fixed">
+                <span class="material-symbols-outlined text-base">location_city</span> 2 megacidades
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial: Minas Gerais Deep-Dive -->
+  <section class="py-24 px-6 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-xl overflow-hidden editorial-shadow">
+            <img
+              alt="Brazilian artisanal cheese and Pão de Queijo from Minas Gerais"
+              class="w-full h-full object-cover"
+              src="/images/minas-cheese.jpg"
+            />
+          </div>
+          <div class="absolute -bottom-10 -right-10 w-64 h-64 glass-effect p-8 rounded-xl editorial-shadow hidden md:block">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">hiking</span>
+            <h4 class="font-headline font-bold text-xl mb-2">Fora do Caminho Comum</h4>
+            <p class="text-sm text-on-surface-variant">Cidades coloniais, trilhas nas montanhas e o calor da hospitalidade mineira.</p>
+          </div>
+        </div>
+        <div>
+          <span class="text-tertiary font-headline font-bold tracking-widest text-sm uppercase mb-6 block">Joia Escondida</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface mb-8 leading-tight">Minas Gerais: O Coração do Brasil</h2>
+          <p class="text-xl text-on-surface-variant font-body leading-relaxed mb-10">
+            Além do litoral está a alma do país. Minas Gerais oferece igrejas barrocas congeladas no tempo, algumas das melhores plantações de café do mundo e uma tradição culinária que parece um abraço caloroso de uma avó que você nunca conheceu.
+          </p>
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">12</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">Cidades Patrimônio UNESCO</div>
+            </div>
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">#1</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">Produtor de Café do Brasil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
