@@ -7,13 +7,14 @@ interface Props {
 
 const { lang = LANGUAGES.ES } = Astro.props;
 const t = TRANSLATIONS[lang];
+const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="bg-surface-container-lowest pt-20 pb-12 px-6">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
       <div class="md:col-span-4">
-        <a href={`/${lang}/`} class="text-primary font-headline font-extrabold text-3xl tracking-tighter mb-6 block">Brazil</a>
+        <a href={`${base}${lang}/`} class="text-primary font-headline font-extrabold text-3xl tracking-tighter mb-6 block">Brazil</a>
         <p class="text-on-surface-variant max-w-xs mb-8">{t.footer.tagline}</p>
         <div class="flex gap-4">
           <a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="https://github.com/facundouferer" target="_blank" rel="noopener noreferrer">
@@ -30,9 +31,9 @@ const t = TRANSLATIONS[lang];
       <div class="md:col-span-2">
         <h5 class="font-headline font-bold text-on-surface mb-6">{t.footer.explore}</h5>
         <ul class="space-y-4">
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`/${lang}/destinations`}>{t.nav.destinations}</a></li>
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`/${lang}/culture`}>{t.nav.culture}</a></li>
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`/${lang}/gastronomy`}>{t.nav.gastronomy}</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`${base}${lang}/destinations`}>{t.nav.destinations}</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`${base}${lang}/culture`}>{t.nav.culture}</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`${base}${lang}/gastronomy`}>{t.nav.gastronomy}</a></li>
         </ul>
       </div>
       <div class="md:col-span-2">

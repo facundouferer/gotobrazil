@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Brasil - Uma Jornada Culinária">
@@ -23,19 +24,19 @@ import "../styles/global.css";
               <img
                 alt="Traditional Brazilian Feijoada stew in clay pot"
                 class="w-full aspect-[4/5] object-cover rounded-xl editorial-shadow"
-                src="/images/hero-feijoada.png"
+                src={`${base}images/hero-feijoada.png`}
               />
               <img
                 alt="Classic Brazilian Churrasco grilled meat skewers"
                 class="w-full aspect-square object-cover rounded-xl editorial-shadow translate-x-12"
-                src="/images/hero-churrasco.png"
+                src={`${base}images/hero-churrasco.png`}
               />
             </div>
             <div class="pt-12">
               <img
                 alt="Fresh Brazilian Moqueca seafood stew simmering"
                 class="w-full aspect-[3/4] object-cover rounded-xl editorial-shadow"
-                src="/images/hero-moqueca.png"
+                src={`${base}images/hero-moqueca.png`}
               />
             </div>
           </div>
@@ -60,7 +61,7 @@ import "../styles/global.css";
             <img
               alt="Exotic Amazonian fruits and river fish"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              src="/images/amazonian.png"
+              src={`${base}images/amazonian.png`}
             />
             <div class="absolute inset-0 bg-linear-to-t from-primary/80 to-transparent"></div>
             <div class="absolute bottom-0 p-10">
@@ -77,7 +78,7 @@ import "../styles/global.css";
             <img
               alt="Authentic Southern Brazilian Churrasco grill"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60"
-              src="/images/southern-churrasco.png"
+              src={`${base}images/southern-churrasco.png`}
             />
             <div class="absolute inset-0 flex flex-col justify-end p-10">
               <h3 class="text-3xl font-bold text-on-tertiary">Churrasco Gaúcho</h3>
@@ -89,7 +90,7 @@ import "../styles/global.css";
             <img
               alt="Spicy Northeastern seafood dish with dendê oil"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-              src="/images/northeastern.png"
+              src={`${base}images/northeastern.png`}
             />
             <div class="absolute inset-0 flex flex-col justify-end p-10">
               <h3 class="text-3xl font-bold text-on-secondary-container">Sabores da Bahia</h3>
@@ -101,7 +102,7 @@ import "../styles/global.css";
             <img
               alt="Brazilian Pão de Queijo and artisanal cheese"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              src="/images/minas-cheese.png"
+              src={`${base}images/minas-cheese.png`}
             />
             <div class="absolute inset-0 bg-linear-to-tr from-secondary/60 to-transparent"></div>
             <div class="absolute bottom-0 right-0 p-10 text-right">
@@ -121,7 +122,7 @@ import "../styles/global.css";
           <img
             alt="A refreshing lime Caipirinha with ice and sugar"
             class="w-full aspect-[4/5] object-cover rounded-[3rem] editorial-shadow relative z-10"
-            src="/images/caipirinha.png"
+            src={`${base}images/caipirinha.png`}
           />
           <div class="absolute -bottom-6 -right-6 glass-panel p-8 rounded-2xl editorial-shadow z-20 max-w-[200px]">
             <span class="text-primary font-bold text-4xl block mb-2">100%</span>
@@ -174,7 +175,7 @@ import "../styles/global.css";
             <img
               alt="Lush coffee plantation in Minas Gerais mountains"
               class="w-full h-48 object-cover rounded-xl mb-6"
-              src="/images/tour-coffee.png"
+              src={`${base}images/tour-coffee.png`}
             />
             <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">Minas Gerais</span>
             <h3 class="text-2xl font-bold text-white mt-2">A Corrida do Café</h3>
@@ -189,7 +190,7 @@ import "../styles/global.css";
             <img
               alt="Street food market in Salvador Bahia"
               class="w-full h-48 object-cover rounded-xl mb-6"
-              src="/images/northeastern.png"
+              src={`${base}images/northeastern.png`}
             />
             <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">Salvador</span>
             <h3 class="text-2xl font-bold text-white mt-2">Sabores da Bahia</h3>
@@ -204,7 +205,7 @@ import "../styles/global.css";
             <img
               alt="Sophisticated fine dining restaurant in Sao Paulo"
               class="w-full h-48 object-cover rounded-xl mb-6"
-              src="/images/hero-christ.png"
+              src={`${base}images/hero-christ.png`}
             />
             <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">São Paulo</span>
             <h3 class="text-2xl font-bold text-white mt-2">Estrela Michelin Urbana</h3>
@@ -219,7 +220,7 @@ import "../styles/global.css";
             <img
               alt="Exotic Amazonian fruits and ingredients"
               class="w-full h-48 object-cover rounded-xl mb-6"
-              src="/images/amazonian.png"
+              src={`${base}images/amazonian.png`}
             />
             <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">Amazônia</span>
             <h3 class="text-2xl font-bold text-white mt-2">Sabores da Floresta</h3>
@@ -234,7 +235,7 @@ import "../styles/global.css";
             <img
               alt="Rio de Janeiro beach street food scene"
               class="w-full h-48 object-cover rounded-xl mb-6"
-              src="/images/rio-coastline.png"
+              src={`${base}images/rio-coastline.png`}
             />
             <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase">Rio de Janeiro</span>
             <h3 class="text-2xl font-bold text-white mt-2">Comida de Rua Carioca</h3>

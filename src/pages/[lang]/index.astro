@@ -12,6 +12,7 @@ const currentLang: Language = lang && Object.values(LANGUAGES).includes(lang as 
   ? (lang as Language) 
   : DEFAULT_LANGUAGE;
 const t = TRANSLATIONS[currentLang];
+const base = import.meta.env.BASE_URL;
 
 export function getStaticPaths() {
   return [
@@ -36,7 +37,7 @@ export function getStaticPaths() {
       <img
         alt="Christ the Redeemer statue overlooking Rio at sunset"
         class="w-full h-full object-cover"
-        src="/images/cristo.png"
+        src={`${base}images/cristo.png`}
       />
       <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-background/90"></div>
     </div>
@@ -81,7 +82,7 @@ export function getStaticPaths() {
           <img
             alt="Lush green Amazon rainforest canopy with winding river"
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            src="/images/amazona.png"
+            src={`${base}images/amazona.png`}
           />
           <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
           <div class="absolute bottom-0 left-0 p-10 w-full">
@@ -103,7 +104,7 @@ export function getStaticPaths() {
             <img
               alt="Aerial view of Rio de Janeiro coastline and mountains"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              src="/images/rio-coastline.png"
+              src={`${base}images/rio-coastline.png`}
             />
             <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
             <div class="absolute bottom-0 left-0 p-8">
@@ -133,7 +134,7 @@ export function getStaticPaths() {
             <img
               alt="Authentic Brazilian seafood stew served in a traditional clay pot"
               class="w-full h-full object-cover"
-              src="/images/gastronomy.png"
+              src={`${base}images/gastronomy.png`}
             />
           </div>
           <div class="absolute -bottom-10 -right-10 w-64 h-64 glass-effect p-8 rounded-xl editorial-shadow hidden md:block">

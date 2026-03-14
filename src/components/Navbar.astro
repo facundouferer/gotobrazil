@@ -10,18 +10,19 @@ interface Props {
 
 const { variant = "glass-pill", activeLink = "", lang = LANGUAGES.ES } = Astro.props;
 const t = TRANSLATIONS[lang];
+const base = import.meta.env.BASE_URL;
 ---
 
 {variant === "glass-pill" ? (
   <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
     <div class="max-w-7xl mx-auto glass-effect rounded-full px-8 py-3 flex items-center justify-between editorial-shadow">
       <div class="flex items-center gap-2">
-        <a href={`/${lang}/`} class="text-primary font-headline font-extrabold text-2xl tracking-tighter">Brasil</a>
+        <a href={`${base}${lang}/`} class="text-primary font-headline font-extrabold text-2xl tracking-tighter">Brasil</a>
       </div>
       <div class="hidden md:flex items-center gap-10">
-        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "destinations" }]} href={`/${lang}/destinations`}>{t.nav.destinations}</a>
-        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "culture" }]} href={`/${lang}/culture`}>{t.nav.culture}</a>
-        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "gastronomy" }]} href={`/${lang}/gastronomy`}>{t.nav.gastronomy}</a>
+        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "destinations" }]} href={`${base}${lang}/destinations`}>{t.nav.destinations}</a>
+        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "culture" }]} href={`${base}${lang}/culture`}>{t.nav.culture}</a>
+        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "gastronomy" }]} href={`${base}${lang}/gastronomy`}>{t.nav.gastronomy}</a>
       </div>
       <div class="flex items-center gap-4">
         <LanguageSwitcher currentLang={lang} />
@@ -31,11 +32,11 @@ const t = TRANSLATIONS[lang];
 ) : (
   <nav class="sticky top-0 z-50 glass-panel border-b border-outline-variant/15 px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-8">
-      <a href={`/${lang}/`} class="text-2xl font-extrabold tracking-tighter text-primary font-headline">Brazil</a>
+      <a href={`${base}${lang}/`} class="text-2xl font-extrabold tracking-tighter text-primary font-headline">Brazil</a>
       <div class="hidden md:flex items-center gap-6">
-        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "destinations" }]} href={`/${lang}/destinations`}>{t.nav.destinations}</a>
-        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "culture" }]} href={`/${lang}/culture`}>{t.nav.culture}</a>
-        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "gastronomy" }]} href={`/${lang}/gastronomy`}>{t.nav.gastronomy}</a>
+        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "destinations" }]} href={`${base}${lang}/destinations`}>{t.nav.destinations}</a>
+        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "culture" }]} href={`${base}${lang}/culture`}>{t.nav.culture}</a>
+        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "gastronomy" }]} href={`${base}${lang}/gastronomy`}>{t.nav.gastronomy}</a>
       </div>
     </div>
     <div class="flex items-center">
