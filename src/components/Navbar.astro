@@ -1,34 +1,45 @@
 ---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { TRANSLATIONS, LANGUAGES, type Language } from "../i18n/translations";
+
 interface Props {
   variant?: "glass-pill" | "glass-bar";
   activeLink?: string;
+  lang?: Language;
 }
 
-const { variant = "glass-pill", activeLink = "" } = Astro.props;
+const { variant = "glass-pill", activeLink = "", lang = LANGUAGES.ES } = Astro.props;
+const t = TRANSLATIONS[lang];
 ---
 
 {variant === "glass-pill" ? (
   <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
     <div class="max-w-7xl mx-auto glass-effect rounded-full px-8 py-3 flex items-center justify-between editorial-shadow">
       <div class="flex items-center gap-2">
-        <a href="/" class="text-primary font-headline font-extrabold text-2xl tracking-tighter">Brazil</a>
+        <a href={`/${lang}/`} class="text-primary font-headline font-extrabold text-2xl tracking-tighter">Brasil</a>
       </div>
       <div class="hidden md:flex items-center gap-10">
-        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "destinations" }]} href="/destinations">Destinations</a>
-        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "culture" }]} href="/culture">Culture</a>
-        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "gastronomy" }]} href="/gastronomy">Gastronomy</a>
+        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "destinations" }]} href={`/${lang}/destinations`}>{t.nav.destinations}</a>
+        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "culture" }]} href={`/${lang}/culture`}>{t.nav.culture}</a>
+        <a class:list={["text-on-surface font-label font-medium hover:text-primary transition-colors", { "text-primary font-semibold": activeLink === "gastronomy" }]} href={`/${lang}/gastronomy`}>{t.nav.gastronomy}</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <LanguageSwitcher currentLang={lang} />
       </div>
     </div>
   </nav>
 ) : (
   <nav class="sticky top-0 z-50 glass-panel border-b border-outline-variant/15 px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-8">
-      <a href="/" class="text-2xl font-extrabold tracking-tighter text-primary font-headline">Brazil</a>
+      <a href={`/${lang}/`} class="text-2xl font-extrabold tracking-tighter text-primary font-headline">Brazil</a>
       <div class="hidden md:flex items-center gap-6">
-        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "destinations" }]} href="/destinations">Destinations</a>
-        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "culture" }]} href="/culture">Culture</a>
-        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "gastronomy" }]} href="/gastronomy">Gastronomy</a>
+        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "destinations" }]} href={`/${lang}/destinations`}>{t.nav.destinations}</a>
+        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "culture" }]} href={`/${lang}/culture`}>{t.nav.culture}</a>
+        <a class:list={["text-sm font-semibold hover:text-primary transition-colors", { "border-b-2 border-primary": activeLink === "gastronomy" }]} href={`/${lang}/gastronomy`}>{t.nav.gastronomy}</a>
       </div>
+    </div>
+    <div class="flex items-center">
+      <LanguageSwitcher currentLang={lang} />
     </div>
   </nav>
 )}

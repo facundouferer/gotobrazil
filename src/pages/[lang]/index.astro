@@ -1,0 +1,165 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
+import { TRANSLATIONS, DEFAULT_LANGUAGE, LANGUAGES, type Language } from "../../i18n/translations";
+import "../../styles/global.css";
+
+// Get language from URL params
+const { lang } = Astro.params;
+const currentLang: Language = lang && Object.values(LANGUAGES).includes(lang as Language) 
+  ? (lang as Language) 
+  : DEFAULT_LANGUAGE;
+const t = TRANSLATIONS[currentLang];
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: LANGUAGES.ES } },
+    { params: { lang: LANGUAGES.PT } },
+    { params: { lang: LANGUAGES.EN } },
+  ];
+}
+---
+
+<Layout title="Brasil - Alma Vibrante" lang={currentLang}>
+  <!-- Language switcher for mobile (fixed position) -->
+  <div class="fixed bottom-4 right-4 z-50 md:hidden">
+    <LanguageSwitcher currentLang={currentLang} />
+  </div>
+
+  <Navbar variant="glass-pill" lang={currentLang} />
+
+  <!-- Hero Section -->
+  <header class="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        alt="Christ the Redeemer statue overlooking Rio at sunset"
+        class="w-full h-full object-cover"
+        src="/images/cristo.png"
+      />
+      <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-background/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-8">
+        <h1 class="font-headline font-extrabold text-6xl md:text-8xl lg:text-9xl text-white tracking-tighter leading-[0.9] text-balance mb-8">
+          {t.hero.title}<br />
+          <span class="text-secondary-fixed">{t.hero.titleAccent}</span>
+        </h1>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <button class="group relative bg-primary text-on-primary font-headline font-bold text-xl px-10 py-5 rounded-full overflow-hidden transition-all hover:scale-105 editorial-shadow"
+          >
+            <span class="relative z-10">{t.hero.cta}</span>
+            <div class="absolute inset-0 bg-linear-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="glass-effect p-8 rounded-xl editorial-shadow border border-white/20">
+          <p class="font-headline text-2xl font-bold text-on-surface mb-4 italic">{t.hero.quote}</p>
+          <p class="text-on-surface-variant font-body leading-relaxed">{t.hero.description}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Curated Experiences (Bento Grid) -->
+  <section class="py-32 px-6 bg-surface">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div class="max-w-2xl">
+          <span class="text-primary font-headline font-bold tracking-widest text-sm uppercase mb-4 block">{t.experiences.subtitle}</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface tracking-tight">{t.experiences.title}</h2>
+        </div>
+        <div class="flex gap-4">
+          <span class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label font-bold text-sm">{t.experiences.badge}</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+        <!-- Natural Wonders -->
+        <div class="md:col-span-7 relative group overflow-hidden rounded-xl editorial-shadow">
+          <img
+            alt="Lush green Amazon rainforest canopy with winding river"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="/images/amazona.png"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-10 w-full">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="bg-primary/20 backdrop-blur-md text-primary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">{t.experiences.nature.tag}</span>
+            </div>
+            <h3 class="text-4xl font-headline font-bold text-white mb-2">{t.experiences.nature.title}</h3>
+            <p class="text-white/80 max-w-md mb-6">{t.experiences.nature.description}</p>
+            <button class="flex items-center gap-2 text-secondary-fixed font-headline font-bold group"
+            >
+              {t.experiences.nature.cta}
+              <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+        <!-- Vibrant Cities -->
+        <div class="md:col-span-5 grid grid-rows-2 gap-6">
+          <div class="relative group overflow-hidden rounded-xl editorial-shadow">
+            <img
+              alt="Aerial view of Rio de Janeiro coastline and mountains"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="/images/rio-coastline.png"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <span class="text-secondary-fixed font-headline font-bold text-xs uppercase tracking-widest mb-2 block">{t.experiences.cities.tag}</span>
+              <h3 class="text-2xl font-headline font-bold text-white">{t.experiences.cities.title}</h3>
+            </div>
+          </div>
+          <div class="bg-surface-container-highest p-10 rounded-xl relative overflow-hidden flex flex-col justify-center">
+            <div class="relative z-10">
+              <span class="text-tertiary font-headline font-bold text-xs uppercase tracking-widest mb-4 block">{t.experiences.culture.tag}</span>
+              <h3 class="text-3xl font-headline font-bold text-on-surface mb-4">{t.experiences.culture.title}</h3>
+              <p class="text-on-surface-variant">{t.experiences.culture.description}</p>
+            </div>
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Storytelling Section -->
+  <section class="py-24 px-6 bg-surface-container-low overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-xl overflow-hidden editorial-shadow">
+            <img
+              alt="Authentic Brazilian seafood stew served in a traditional clay pot"
+              class="w-full h-full object-cover"
+              src="/images/gastronomy.png"
+            />
+          </div>
+          <div class="absolute -bottom-10 -right-10 w-64 h-64 glass-effect p-8 rounded-xl editorial-shadow hidden md:block">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+            <h4 class="font-headline font-bold text-xl mb-2">{t.editorial.card.title}</h4>
+            <p class="text-sm text-on-surface-variant">{t.editorial.card.description}</p>
+          </div>
+        </div>
+        <div>
+          <span class="text-tertiary font-headline font-bold tracking-widest text-sm uppercase mb-6 block">{t.editorial.subtitle}</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface mb-8 leading-tight">{t.editorial.title}</h2>
+          <p class="text-xl text-on-surface-variant font-body leading-relaxed mb-10">{t.editorial.description}</p>
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">26</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">{t.editorial.stats.states}</div>
+            </div>
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">1k+</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">{t.editorial.stats.recipes}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={currentLang} />
+</Layout>

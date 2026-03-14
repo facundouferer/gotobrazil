@@ -1,12 +1,20 @@
 ---
+import { TRANSLATIONS, LANGUAGES, type Language } from "../i18n/translations";
+
+interface Props {
+  lang?: Language;
+}
+
+const { lang = LANGUAGES.ES } = Astro.props;
+const t = TRANSLATIONS[lang];
 ---
 
 <footer class="bg-surface-container-lowest pt-20 pb-12 px-6">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
       <div class="md:col-span-4">
-        <a href="/" class="text-primary font-headline font-extrabold text-3xl tracking-tighter mb-6 block">Brazil</a>
-        <p class="text-on-surface-variant max-w-xs mb-8">Defining the gold standard of tourism in South America. Experience luxury, nature, and soul.</p>
+        <a href={`/${lang}/`} class="text-primary font-headline font-extrabold text-3xl tracking-tighter mb-6 block">Brazil</a>
+        <p class="text-on-surface-variant max-w-xs mb-8">{t.footer.tagline}</p>
         <div class="flex gap-4">
           <a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="https://github.com/facundouferer" target="_blank" rel="noopener noreferrer">
             <span class="material-symbols-outlined">code</span>
@@ -20,25 +28,25 @@
         </div>
       </div>
       <div class="md:col-span-2">
-        <h5 class="font-headline font-bold text-on-surface mb-6">Explore</h5>
+        <h5 class="font-headline font-bold text-on-surface mb-6">{t.footer.explore}</h5>
         <ul class="space-y-4">
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="/destinations">Destinations</a></li>
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="/culture">Culture</a></li>
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="/gastronomy">Gastronomy</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`/${lang}/destinations`}>{t.nav.destinations}</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`/${lang}/culture`}>{t.nav.culture}</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href={`/${lang}/gastronomy`}>{t.nav.gastronomy}</a></li>
         </ul>
       </div>
       <div class="md:col-span-2">
-        <h5 class="font-headline font-bold text-on-surface mb-6">Support</h5>
+        <h5 class="font-headline font-bold text-on-surface mb-6">{t.footer.support}</h5>
         <ul class="space-y-4">
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.facundouferer.ar/contact">Contact</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="https://www.facundouferer.ar/contact">{t.footer.contact}</a></li>
         </ul>
       </div>
     </div>
     <div class="pt-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-6">
-      <p class="text-on-surface-variant text-sm font-label">&copy; 2024 Visit Brazil. High-end Tourism.</p>
+      <p class="text-on-surface-variant text-sm font-label">&copy; 2024 Visit Brazil. {t.footer.rights}<a href="https://www.facundouferer.ar/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Facundo Uferer</a></p>
       <div class="flex items-center gap-8 text-sm font-label text-on-surface-variant">
-        <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> Sustainable Tourism</span>
-        <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span> Premium Experience</span>
+        <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> {t.footer.sustainableTourism}</span>
+        <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary"></span> {t.footer.premiumExperience}</span>
       </div>
     </div>
   </div>

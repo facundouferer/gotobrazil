@@ -1,0 +1,384 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
+import { TRANSLATIONS, DEFAULT_LANGUAGE, LANGUAGES, type Language } from "../../i18n/translations";
+import "../../styles/global.css";
+
+// Get language from URL params
+const { lang } = Astro.params;
+const currentLang: Language = lang && Object.values(LANGUAGES).includes(lang as Language)
+  ? (lang as Language)
+  : DEFAULT_LANGUAGE;
+const t = TRANSLATIONS[currentLang];
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: LANGUAGES.ES } },
+    { params: { lang: LANGUAGES.PT } },
+    { params: { lang: LANGUAGES.EN } },
+  ];
+}
+---
+
+<Layout title={`${t.nav.culture} - Brasil`} lang={currentLang}>
+  <!-- Language switcher for mobile (fixed position) -->
+  <div class="fixed bottom-4 right-4 z-50 md:hidden">
+    <LanguageSwitcher currentLang={currentLang} />
+  </div>
+
+  <Navbar variant="glass-pill" activeLink="culture" lang={currentLang} />
+
+  <!-- Hero Section -->
+  <header class="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        alt="Christ the Redeemer statue overlooking Rio de Janeiro at golden hour"
+        class="w-full h-full object-cover"
+        src="/images/hero-christ.png"
+      />
+      <div class="absolute inset-0 bg-linear-to-b from-black/30 via-transparent to-background/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-8">
+        <h1 class="font-headline font-extrabold text-6xl md:text-8xl lg:text-9xl text-white tracking-tighter leading-[0.9] text-balance mb-8">
+          {t.culture.hero.title}<br />
+          <span class="text-secondary-fixed">{t.culture.hero.titleAccent}</span>
+        </h1>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <button class="group relative bg-primary text-on-primary font-headline font-bold text-xl px-10 py-5 rounded-full overflow-hidden transition-all hover:scale-105 editorial-shadow"
+          >
+            <span class="relative z-10">{t.culture.hero.cta}</span>
+            <div class="absolute inset-0 bg-linear-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-4 hidden lg:block">
+        <div class="glass-effect p-8 rounded-xl editorial-shadow border border-white/20">
+          <p class="font-headline text-2xl font-bold text-on-surface mb-4 italic">{t.culture.hero.quote}</p>
+          <p class="text-on-surface-variant font-body leading-relaxed">{t.culture.hero.description}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cultural Pillars (Bento Grid) -->
+  <section class="py-32 px-6 bg-surface">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div class="max-w-2xl">
+          <span class="text-primary font-headline font-bold tracking-widest text-sm uppercase mb-4 block">{t.culture.pillars.subtitle}</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface tracking-tight">{t.culture.pillars.title}</h2>
+          <p class="text-xl text-on-surface-variant mt-6">{t.culture.pillars.description}</p>
+        </div>
+        <div class="flex gap-4">
+          <span class="px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label font-bold text-sm">{t.culture.pillars.badge}</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+        <!-- Carnival -->
+        <div class="md:col-span-7 relative group overflow-hidden rounded-xl editorial-shadow">
+          <img
+            alt="Vibrant Rio de Janeiro with colorful streets and cultural life"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="/images/rio-coastline.png"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-10 w-full">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="bg-secondary-container/80 backdrop-blur-md text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">{t.culture.carnival.tag}</span>
+            </div>
+            <h3 class="text-4xl font-headline font-bold text-white mb-2">{t.culture.carnival.title}</h3>
+            <p class="text-white/80 max-w-md mb-6">{t.culture.carnival.description}</p>
+            <button class="flex items-center gap-2 text-secondary-fixed font-headline font-bold group"
+            >
+              {t.culture.carnival.cta}
+              <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+        <!-- Music + Capoeira -->
+        <div class="md:col-span-5 grid grid-rows-2 gap-6">
+          <div class="relative group overflow-hidden rounded-xl editorial-shadow">
+            <img
+              alt="Traditional Brazilian Caipirinha representing Brazilian social culture"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="/images/caipirinha.png"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <span class="text-secondary-fixed font-headline font-bold text-xs uppercase tracking-widest mb-2 block">{t.culture.music.tag}</span>
+              <h3 class="text-2xl font-headline font-bold text-white">{t.culture.music.title}</h3>
+              <p class="text-white/70 mt-2 text-sm max-w-xs">{t.culture.music.description}</p>
+            </div>
+          </div>
+          <div class="bg-surface-container-highest p-10 rounded-xl relative overflow-hidden flex flex-col justify-center">
+            <div class="relative z-10">
+              <span class="text-tertiary font-headline font-bold text-xs uppercase tracking-widest mb-4 block">{t.culture.capoeira.tag}</span>
+              <h3 class="text-3xl font-headline font-bold text-on-surface mb-4">{t.culture.capoeira.title}</h3>
+              <p class="text-on-surface-variant">{t.culture.capoeira.description}</p>
+            </div>
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cultural Expressions Grid -->
+  <section class="py-24 px-6 bg-surface-container-low overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="text-tertiary font-headline font-bold tracking-widest text-sm uppercase mb-6 block">{t.culture.expressions.subtitle}</span>
+        <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface mb-4 leading-tight">{t.culture.expressions.title}</h2>
+        <p class="text-xl text-on-surface-variant max-w-2xl">{t.culture.expressions.description}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Afro-Brazilian -->
+        <div class="bg-surface-container rounded-xl p-10 editorial-shadow relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-tertiary-container/20 rounded-full blur-2xl"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-tertiary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-on-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">{t.culture.expressions.afro.title}</h3>
+            <p class="text-on-surface-variant mb-6">{t.culture.expressions.afro.description}</p>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-tertiary-container/30 rounded-full text-xs font-bold text-tertiary uppercase tracking-widest">{t.culture.expressions.afro.tags[0]}</span>
+              <span class="px-3 py-1 bg-tertiary-container/30 rounded-full text-xs font-bold text-tertiary uppercase tracking-widest">{t.culture.expressions.afro.tags[1]}</span>
+              <span class="px-3 py-1 bg-tertiary-container/30 rounded-full text-xs font-bold text-tertiary uppercase tracking-widest">{t.culture.expressions.afro.tags[2]}</span>
+            </div>
+          </div>
+        </div>
+        <!-- Indigenous -->
+        <div class="bg-surface-container rounded-xl p-10 editorial-shadow relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-on-primary text-2xl" style="font-variation-settings: 'FILL' 1;">forest</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">{t.culture.expressions.indigenous.title}</h3>
+            <p class="text-on-surface-variant mb-6">{t.culture.expressions.indigenous.description}</p>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-primary/10 rounded-full text-xs font-bold text-primary uppercase tracking-widest">{t.culture.expressions.indigenous.tags[0]}</span>
+              <span class="px-3 py-1 bg-primary/10 rounded-full text-xs font-bold text-primary uppercase tracking-widest">{t.culture.expressions.indigenous.tags[1]}</span>
+            </div>
+          </div>
+        </div>
+        <!-- Colonial European -->
+        <div class="bg-surface-container rounded-xl p-10 editorial-shadow relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary-container/30 rounded-full blur-2xl"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-on-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">church</span>
+            </div>
+            <h3 class="text-2xl font-headline font-bold text-on-surface mb-4">{t.culture.expressions.european.title}</h3>
+            <p class="text-on-surface-variant mb-6">{t.culture.expressions.european.description}</p>
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 bg-secondary-container/50 rounded-full text-xs font-bold text-secondary uppercase tracking-widest">{t.culture.expressions.european.tags[0]}</span>
+              <span class="px-3 py-1 bg-secondary-container/50 rounded-full text-xs font-bold text-secondary uppercase tracking-widest">{t.culture.expressions.european.tags[1]}</span>
+              <span class="px-3 py-1 bg-secondary-container/50 rounded-full text-xs font-bold text-secondary uppercase tracking-widest">{t.culture.expressions.european.tags[2]}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial: Art & Architecture -->
+  <section class="py-24 px-6 overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-xl overflow-hidden editorial-shadow">
+            <img
+              alt="Authentic Brazilian cultural experience and gastronomy"
+              class="w-full h-full object-cover"
+              src="/images/gastronomy.png"
+            />
+          </div>
+          <div class="absolute -bottom-10 -right-10 w-64 h-64 glass-effect p-8 rounded-xl editorial-shadow hidden md:block">
+            <span class="material-symbols-outlined text-primary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">palette</span>
+            <h4 class="font-headline font-bold text-xl mb-2">{t.culture.art.cardTitle}</h4>
+            <p class="text-sm text-on-surface-variant">{t.culture.art.cardDescription}</p>
+          </div>
+        </div>
+        <div>
+          <span class="text-tertiary font-headline font-bold tracking-widest text-sm uppercase mb-6 block">{t.culture.art.subtitle}</span>
+          <h2 class="text-5xl md:text-6xl font-headline font-extrabold text-on-surface mb-8 leading-tight">{t.culture.art.title}</h2>
+          <p class="text-xl text-on-surface-variant font-body leading-relaxed mb-10">
+            {t.culture.art.description}
+          </p>
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">3.000+</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">{t.culture.art.museums}</div>
+            </div>
+            <div>
+              <div class="text-4xl font-headline font-extrabold text-primary mb-2">500+</div>
+              <div class="font-label font-bold text-on-surface-variant uppercase tracking-wide text-xs">{t.culture.art.festivals}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cultural Calendar - Auto-scroll Marquee -->
+  <section class="py-24 bg-tertiary overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-20">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-6xl font-black text-on-tertiary mb-6">{t.culture.calendar.title}</h2>
+        <p class="text-tertiary-fixed-dim max-w-2xl mx-auto text-lg">{t.culture.calendar.description}</p>
+      </div>
+    </div>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <!-- Janeiro: Lavagem do Bonfim -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.bonfim.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.bonfim.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.bonfim.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.bonfim.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.bonfim.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Fevereiro/Março: Carnaval -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">celebration</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.carnival.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.carnival.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.carnival.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.carnival.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.carnival.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Junho: Festas Juninas -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.juninas.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.juninas.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.juninas.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.juninas.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.juninas.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Setembro: Festival de Parintins -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">theater_comedy</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.parintins.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.parintins.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.parintins.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.parintins.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.parintins.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <!-- Duplicated for seamless loop -->
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.bonfim.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.bonfim.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.bonfim.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.bonfim.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.bonfim.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">celebration</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.carnival.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.carnival.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.carnival.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.carnival.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.carnival.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.juninas.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.juninas.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.juninas.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.juninas.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.juninas.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+        <div class="min-w-[140px] lg:min-w-[160px] bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shrink-0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">theater_comedy</span>
+            </div>
+            <div>
+              <span class="text-secondary-fixed text-xs font-bold tracking-widest uppercase block">{t.culture.calendar.events.parintins.month}</span>
+              <span class="text-white font-bold">{t.culture.calendar.events.parintins.location}</span>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{t.culture.calendar.events.parintins.title}</h3>
+          <p class="text-tertiary-fixed-dim mb-6">{t.culture.calendar.events.parintins.description}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-white/60 font-label text-sm">{t.culture.calendar.events.parintins.type}</span>
+            <span class="material-symbols-outlined text-secondary-fixed">arrow_outward</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang={currentLang} />
+</Layout>

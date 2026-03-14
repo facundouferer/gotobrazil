@@ -1,0 +1,50 @@
+---
+import { LANGUAGES, LANGUAGE_NAMES, type Language } from "../i18n/translations";
+
+interface Props {
+  currentLang: Language;
+}
+
+const { currentLang } = Astro.props;
+
+const FLAGS: Record<Language, string> = {
+  [LANGUAGES.ES]: "🇪🇸",
+  [LANGUAGES.PT]: "🇧🇷",
+  [LANGUAGES.EN]: "🇬🇧",
+};
+---
+
+<language-switcher
+  class="flex items-center gap-2 bg-surface-container/80 backdrop-blur-sm rounded-full px-3 py-1.5 border border-outline-variant/20"
+  data-current={currentLang}
+>
+  {
+    Object.values(LANGUAGES).map((lang) => (
+      <a
+        href={`/${lang}/`}
+        class:list={[
+          "text-xl transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-full",
+          { "opacity-40 hover:opacity-70": lang !== currentLang },
+          { "opacity-100 scale-110 ring-2 ring-primary/30 rounded-full": lang === currentLang },
+        ]}
+        aria-label={`${LANGUAGE_NAMES[lang]}`}
+        title={LANGUAGE_NAMES[lang]}
+        data-lang={lang}
+      >
+        {FLAGS[lang]}
+      </a>
+    ))
+  }
+</language-switcher>
+
+<script>
+  // Save language preference when clicking
+  document.querySelectorAll('language-switcher a[data-lang]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
+      if (lang) {
+        document.cookie = `user-language=${lang}; path=/; max-age=${60 * 60 * 24 * 365}`;
+      }
+    });
+  });
+</script>
