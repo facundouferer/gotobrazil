@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://facundouferer.github.io',
+  base: '/gotobrazil',
   vite: {
     plugins: [tailwindcss()],
   },
